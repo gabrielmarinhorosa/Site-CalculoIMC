@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Saúde - IMC & TMB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-center mb-2">Calculadora de Saúde</h1>
+            <p class="text-xl text-center opacity-90">Descubra seu IMC, TMB e receba um plano personalizado</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
+            <div class="flex border-b">
+                <button id="calculator-tab" class="tab-active py-4 px-6 text-lg focus:outline-none">Calculadora</button>
+                <button id="results-tab" class="py-4 px-6 text-lg focus:outline-none text-gray-500">Resultados</button>
+            </div>
+
+            <div id="calculator-section" class="p-6">
+                <form id="health-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="gender" class="block text-gray-700 mb-2">Sexo</label>
+                            <div class="flex space-x-4">
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="gender" value="male" class="h-5 w-5 text-blue-600" checked>
+                                    <span class="ml-2 text-gray-700">Masculino</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" name="gender" value="female" class="h-5 w-5 text-blue-600">
+                                    <span class="ml-2 text-gray-700">Feminino</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="age" class="block text-gray-700 mb-2">Idade (anos)</label>
+                            <input type="number" id="age" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" min="10" max="100" required>
+                        </div>
+
+                        <div>
+                            <label for="weight" class="block text-gray-700 mb-2">Peso (kg)</label>
+                            <input type="number" id="weight" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" step="0.1" min="30" max="200" required>
+                        </div>
+
+                        <div>
+                            <label for="height" class="block text-gray-700 mb-2">Altura (cm)</label>
+                            <input type="number" id="height" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" min="100" max="250" required>
+                        </div>
+
+                        <div>
+                            <label for="activity" class="block text-gray-700 mb-2">Nível de Atividade</label>
+                            <select id="activity" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <option value="1.2">Sedentário (pouco ou nenhum exercício, menos de 30 min/dia)</option>
+                                <option value="1.375">Levemente ativo (exercício leve 1-3 dias/semana, 30-45 min/dia)</option>
+                                <option value="1.55">Moderadamente ativo (exercício moderado 3-5 dias/semana, 45-60 min/dia)</option>
+                                <option value="1.725">Muito ativo (exercício intenso 6-7 dias/semana, 60-90 min/dia)</option>
+                                <option value="1.9">Extremamente ativo (exercício muito intenso ou trabalho físico, mais de 90 min/dia)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="goal" class="block text-gray-700 mb-2">Objetivo</label>
+                            <select id="goal" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <option value="loss">Perda de peso</option>
+                                <option value="maintain">Manutenção do peso</option>
+                                <option value="gain">Ganho de peso/massa muscular</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" class="w-full gradient-bg text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition duration-300 flex items-center justify-center">
+                            <i class="fas fa-calculator mr-2"></i> Calcular
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="results-section" class="p-6 hidden">
+                <div id="results-container" class="space-y-8">
+                    <!-- Results will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Calculadora de Saúde. Todos os direitos reservados.</p>
+            <p class="mt-2 text-gray-400 text-sm">As informações fornecidas são apenas para fins educativos e não substituem orientação médica profissional.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

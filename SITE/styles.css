@@ -1,0 +1,25 @@
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.result-card {
+    transition: all 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.diet-plan {
+    border-left: 4px solid #667eea;
+}
+
+.exercise-plan {
+    border-left: 4px solid #48bb78;
+}
+
+.tab-active {
+    border-bottom: 3px solid #667eea;
+    font-weight: 600;
+} 
